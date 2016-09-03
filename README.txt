@@ -1,3 +1,6 @@
+Tweaked to work with streaming radio (Turn off synchronised lyrics as there is no timing information to work with !!) 
+
+
  INFO FOR SKINNERS
 ===================
 
