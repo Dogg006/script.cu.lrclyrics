@@ -160,11 +160,11 @@ class Song:
         if match:
             song.title = song.title[4:]
 
-        if not song.artist and not xbmc.getInfoLabel("MusicPlayer.TimeRemaining"):
+        if (not song.artist and not xbmc.getInfoLabel("MusicPlayer.TimeRemaining"))or (not song.artist and xbmc.getCondVisibility("Player.IsInternetStream")):
             # no artist and infinite playing time ? We probably listen to a radio
             # which usually set the song title as "Artist - Title" (via ICY StreamTitle)
             song.analyze_safe = False
-            sep = song.title.find("-")
+            sep = song.title.find("- ")
             if sep > 1:
                 song.artist = song.title[:sep - 1].strip()
                 song.title = song.title[sep + 1:].strip()
