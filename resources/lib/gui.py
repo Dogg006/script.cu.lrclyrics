@@ -67,14 +67,15 @@ class MAIN():
                     WIN.setProperty('culrc.force','FALSE')
                     self.current_lyrics = Lyrics()
                     self.myPlayerChanged()
+                elif xbmc.getCondVisibility("Player.IsInternetStream"):
+                    self.myPlayerChanged() 
             else:
                 # we may have exited the music visualization screen
                 self.triggered = False
                 # reset current lyrics so we show them again when re-entering the visualization screen
                 self.current_lyrics = Lyrics()
             xbmc.sleep(1000)
-            if xbmc.getCondVisibility("Window.IsVisible(12006)") and xbmc.getCondVisibility("Player.IsInternetStream"):   
-                self.myPlayerChanged()
+            
         WIN.clearProperty('culrc.quit')
         WIN.clearProperty('culrc.lyrics')
         WIN.clearProperty('culrc.source')
